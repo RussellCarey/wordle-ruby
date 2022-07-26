@@ -38,16 +38,9 @@ def check_word()
 end
 
 def win_condition
-    @count = 0;
-
-    @round_outcome.each { |l| 
-        if (l == "c") 
-          @count += 1
-        end
-    }
-
+    @outcome_string = @round_outcome.join
+    @count = @outcome_string.count("c")
     @has_won = @count === 5 ? true : false;
-
     return @has_won
 end
 
