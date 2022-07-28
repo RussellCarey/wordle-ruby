@@ -60,8 +60,8 @@ class Game
 
     def reset_game
     end
-end
-
-# @word_con = Word.new('./Files/words.txt')
-# @game = Game.new(@word_con)
-# @game.start_round()
+    
+# temp 
+@word_con = Word.new('./Files/words.txt')
+@game = Game.new(@word_con)
+@game.start_round()
