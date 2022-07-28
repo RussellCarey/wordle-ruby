@@ -2,7 +2,7 @@ require_relative "./word.rb"
 
 
 class Game 
-    attr_reader :word
+    attr_reader :word, :row_status
 
     def initialize(word_controller)
       @word_controller = word_controller
@@ -13,7 +13,7 @@ class Game
     def start_round
         # On new recursion, check if we have won
        
-        if win_condition?()
+        if win_condition?(@row_status)
             puts("You have won!!!") 
         end
         
@@ -52,17 +52,16 @@ class Game
         return @guess
     end
 
-    private def win_condition?
-        @outcome_string = @row_status.join
+    def win_condition?(row_status)
+        @outcome_string = row_status.join
         @count = @outcome_string.count("c")
         @has_won = @count == 5 ? true : false
     end
 
     def reset_game
     end
-
 end
 
-@word_con = Word.new('words.txt')
-@game = Game.new(@word_con)
-@game.start_round()
+# @word_con = Word.new('./Files/words.txt')
+# @game = Game.new(@word_con)
+# @game.start_round()

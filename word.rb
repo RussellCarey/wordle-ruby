@@ -1,6 +1,6 @@
 class Word 
 
-    attr_reader :word
+    attr_reader :word, :text_array
 
     def initialize(textFile)
         @text_array =  File.read(textFile).split
@@ -10,8 +10,6 @@ class Word
     def choose_random_word
         @random_choice = rand(@text_array.length - 1).floor
         @word = @text_array[@random_choice].upcase
-        puts @word
-        
         return @word
     end
 
@@ -40,5 +38,4 @@ class Word
 
         return @row_status
     end
-
 end
